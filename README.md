@@ -10,4 +10,4 @@
 
 ## Sample Outputs
 
-![Screenshot](Captured_text_3.png)
+![Screenshot](Sample_Output_folder/Captured_text_3.png)
