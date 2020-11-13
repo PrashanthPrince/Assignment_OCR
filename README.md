@@ -10,11 +10,19 @@
 
 ## Sample Outputs
 
+Example 1:
+
 The Captured Text at the position of mouse cursor
 ![Example 1](https://user-images.githubusercontent.com/48694464/99034981-8b7cac80-25a4-11eb-8213-8564825124eb.png)
 
 Text Read from that image. 
-![Example 2](https://user-images.githubusercontent.com/48694464/99035072-caaafd80-25a4-11eb-927e-b2fb13ccf02e.png)
+![Example 1](https://user-images.githubusercontent.com/48694464/99035072-caaafd80-25a4-11eb-927e-b2fb13ccf02e.png)
 
 
+Example 2:
 
+The Captured Text at the position of mouse cursor
+![Example_2](https://user-images.githubusercontent.com/48694464/99035044-bff06880-25a4-11eb-932f-538c870e10c3.png)
+
+Text Read from that image. 
+![Example_2](https://user-images.githubusercontent.com/48694464/99035086-d5659280-25a4-11eb-97a1-07377c13fa21.png)
