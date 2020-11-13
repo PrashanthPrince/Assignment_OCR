@@ -6,7 +6,17 @@
 3) Get to the required page using alt+tab.
 4) Click on the top left corner of the object that you want to take screenshot of.
 5) Text from the selected object will be displayed as an image with a RED border around that captured text.
-6) Extracted text will be displayed as an output in the program.
+6) Extracted text will be displayed as an output in the program. Text detection from the image is done using tesseract.
+
+## Required Libraries
+These are the required libraries to execute the program successfully.
+1) Python - 3.6.12
+2) numpy - 1.18.0
+3) opencv-python -  4.4.0.46
+4) PyAutoGUI - 0.9.52
+5) pytesseract - 0.3.6
+6) pywin32 - 228
+
 
 ## Sample Outputs
 
