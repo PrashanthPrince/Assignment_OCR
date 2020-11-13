@@ -1,7 +1,6 @@
 """ 
 Author: Prashanth Prince
 Date : 12 Nov 2020
-
 """
 
 import cv2
@@ -19,7 +18,6 @@ right_click_state = win32api.GetKeyState(0x02)  # Right button of Mouse
  The function "detecting_text" is used to detect the text from the given image. 
  Input: Image 
  Output: Text
-
 """
 
 def detecting_text(image):
@@ -66,11 +64,10 @@ def detecting_text(image):
  The function "take_screenshot" is used to take a screenshot at the position of mouse cursor. 
  Input: x and y coordinates of the Mouse Cursor 
  Output: Image
-
 """
 
 def take_screenshot(x,y):
-    # Taking screenshot at the position of mouse pointer. Width and height of 600,70 is used. However, this can be changeed for different applications.
+    # Taking screenshot at the position of mouse pointer. Width and height of 600,70 is used. However, this can be changed for different applications.
     image = pyautogui.screenshot(region=(x,y, 600, 70))
     image = cv2.cvtColor(np.array(image), cv2.COLOR_RGB2BGR)
     detecting_text(image)
