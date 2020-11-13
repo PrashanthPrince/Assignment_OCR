@@ -1,7 +1,7 @@
 # Assignment_OCR
 
 ## How to run this program
-1) Open any page that you want to take screenshot. This program works on any open window(web, desktop, command prompt etc.)
+1) Open any page that you want to take screenshot of. This program works on any open window(web, desktop, command prompt etc.)
 2) Execute the program.
 3) Get to the required page using alt+tab.
 4) Click on the top left corner of the object that you want to take screenshot of.
