@@ -10,4 +10,5 @@
 
 ## Sample Outputs
 
-![Screenshot](Sample_Output_folder/Captured_text_3.png)
+![](https://user-images.githubusercontent.com/48694464/99034981-8b7cac80-25a4-11eb-8213-8564825124eb.png)
+
