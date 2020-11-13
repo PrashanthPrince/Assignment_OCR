@@ -8,6 +8,7 @@ The source code is in Assignment.py
 4) Click on the top left corner of the object that you want to take screenshot of.
 5) Text from the selected object will be displayed as an image with a RED border around that captured text.
 6) Extracted text will be displayed as an output in the program. Text detection from the image is done using tesseract.
+7) After the work is done, press ctrl+c to stop the program. 
 
 ## Required Libraries
 These are the required libraries to execute the program successfully.
