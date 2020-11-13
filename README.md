@@ -1,4 +1,5 @@
 # Assignment_OCR
+The source code is in Assignment.py
 
 ## How to run this program
 1) Open any page that you want to take screenshot of. This program works on any open window(web, desktop, command prompt etc.)
