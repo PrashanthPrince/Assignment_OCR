@@ -19,6 +19,8 @@ These are the required libraries to execute the program successfully.
 5) pytesseract - 0.3.6
 6) pywin32 - 228
 
+Or you can reach out to requirements.txt to install an environment(use conda) for the program to execute.
+
 
 ## Sample Outputs
 
