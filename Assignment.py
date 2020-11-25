@@ -1,23 +1,30 @@
 """ 
 Author: Prashanth Prince
 Date : 12 Nov 2020
+
 """
 
 import cv2
 import numpy as np
+import pandas as pd
 import pytesseract
 import win32api
 import pyautogui
 import time
+import math
 
+df = pd.read_excel('dataset_coordinates.xlsx')
 
 left_click_state = win32api.GetKeyState(0x01)  # Left button of Mouse 
 right_click_state = win32api.GetKeyState(0x02)  # Right button of Mouse
 
 """ 
+ Description: 
  The function "detecting_text" is used to detect the text from the given image. 
+ 
  Input: Image 
  Output: Text
+
 """
 
 def detecting_text(image):
@@ -51,26 +58,44 @@ def detecting_text(image):
         # Cropping the text block from the image
         cropped = image_copy[y:y + h, x:x + w] 
     
-        # Applying Optical Character Recognition using Tesseract on the cropped image. 
-        # Setting the config based on the differect working modes of pytesseract.  
-        custom_config = r'--oem 3 --psm 6'
-        text = pytesseract.image_to_string(cropped, config=custom_config)
-        print(text)
-
+    # Applying Optical Character Recognition using Tesseract.
+    # Setting the config based on the differect working modes of pytesseract.      
+    custom_config = r'--oem 3 --psm 6'
+    text = pytesseract.image_to_string(image, config=custom_config)
+    print(text)
     cv2.imshow("Captured texts", image_copy)
     cv2.waitKey(0)
 
 """ 
+ Description:
  The function "take_screenshot" is used to take a screenshot at the position of mouse cursor. 
+ It takes the page name, position of the label from the user. Then it calculates the distance between the coordinates of the mouse cursor and the position of userid/password text boxes.
+ The box with minimum distance from the mouse cursor is selected and then it is cropped from the original screenshot.
+ The approach of calculating the minimum distance is carried out to know which text box is selected.
+
  Input: x and y coordinates of the Mouse Cursor 
  Output: Image
+
 """
 
 def take_screenshot(x,y):
-    # Taking screenshot at the position of mouse pointer. Width and height of 600,70 is used. However, this can be changed for different applications.
-    image = pyautogui.screenshot(region=(x,y, 600, 70))
+    # Taking screenshot at the position of mouse pointer.
+    image = pyautogui.screenshot()
+    page = input("Enter the page you are in: ")
+    pos = input("Enter the position of the label(top, bottom, left, right or none): ")
+
+    pageloc2 = [i for i in range(df.index.start, df.index.stop) if df['Page'][i] == page.lower()]
+    diff = []
+
+    for i in range(len(pageloc2)):
+        diff.append(math.sqrt((x - df.loc[pageloc2[i]].at['left'])**2 + (y - df.loc[pageloc2[i]].at['top'])**2))
+    
     image = cv2.cvtColor(np.array(image), cv2.COLOR_RGB2BGR)
-    detecting_text(image)
+    image_cropped = image[int(df.loc[pageloc2[diff.index(min(diff))]].at['top']):int(df.loc[pageloc2[diff.index(min(diff))]].at['top'] + df.loc[pageloc2[diff.index(min(diff))]].at['height']), int(df.loc[pageloc2[diff.index(min(diff))]].at['left']):int(df.loc[pageloc2[diff.index(min(diff))]].at['left'] + df.loc[pageloc2[diff.index(min(diff))]].at['width'])]
+    cv2.imshow("Captured texts", image_cropped)
+    cv2.waitKey(0)
+
+    detecting_text(image_cropped)
 
 try:
     while True: 
